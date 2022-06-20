@@ -22,10 +22,11 @@ resource "aws_subnet" "public_a" {
   availability_zone       = "${var.region}a"
   map_public_ip_on_launch = true
 
-  tags = {
-    Name = var.public_name
-  }
+  tags = tomap(
+      { "Name" = lower(format("subnet-%s", var.environment_name)) }
+    )
 }
+
 
 # # ELASTIC IP _ PUBLIC NAT GATEWAY
 # #ELASTIC NAT GATEWAY A

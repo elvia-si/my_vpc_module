@@ -14,3 +14,6 @@ public_name   = "My-Public-A"
 # # PRIVATE
 # private_cidr_a = "10.10.2.0/24"
 # private_cidr_b = "10.10.3.0/24"
+
+#tags
+environment_name = "DEV"
