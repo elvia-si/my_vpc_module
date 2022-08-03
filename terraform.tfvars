@@ -2,6 +2,7 @@
 vpc_cidr = "10.10.0.0/16"
 vpc_name = "my-VPC-for-practice"
 region   = "eu-west-1"
+aws_region = "us-east-1"
 
 # INTERNET GATEWAY
 internet_gw_name = "my-internet-gateway"
