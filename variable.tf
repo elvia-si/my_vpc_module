@@ -45,12 +45,6 @@ variable "environment_name" {
   type = string
 }
 
-# REGION US-EAST-1
-variable "aws_region" {
-  description = "Default region for the VPC"
-  type        = string
-}
-
 
 
 
