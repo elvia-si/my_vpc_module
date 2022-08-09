@@ -39,26 +39,3 @@ resource "aws_route_table_association" "igw_for_public_a" {
 #     subnet_id      = aws_subnet.private_b.id
 #     route_table_id = aws_route_table.public_subnet_rt.id
 # } 
-
-# REGION US-EAST-1
-
-# INTERNET GATEWAY ROUTE TABLE FOR PUBLIC NETWORK
-resource "aws_route_table" "public_to_internet_rt_east" {
-  provider = aws.east
-  vpc_id = aws_vpc.my_vpc_east.id
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.internet_gateway_east.id
-  }
-  tags = {
-    Name = "internet-gateway-route-table"
-  }
-}
-
-
-# ROUTE TABLE ASSOCIATION TO SUBNET PUBLIC A
-resource "aws_route_table_association" "igw_for_public_a_east" {
-  provider = aws.east
-  subnet_id      = aws_subnet.public_a_east.id
-  route_table_id = aws_route_table.public_to_internet_rt_east.id
-}

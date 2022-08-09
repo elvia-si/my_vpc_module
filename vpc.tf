@@ -70,37 +70,3 @@ resource "aws_subnet" "public_a" {
 #     Name = "elk-private-b"
 #   }
 # }
-
-#US-EAST-1
-
-resource "aws_vpc" "my_vpc_east" {
-  provider = aws.east
-  cidr_block = var.vpc_cidr
-
-  tags = {
-    Name = var.vpc_name
-  }
-}
-
-# INTERNET GATEWAY
-resource "aws_internet_gateway" "internet_gateway_east" {
-  provider = aws.east
-  vpc_id = aws_vpc.my_vpc_east.id
-
-  tags = {
-    Name = var.internet_gw_name
-  }
-}
-
-# PUBLIC SUBNET
-resource "aws_subnet" "public_a_east" {
-  provider = aws.east
-  vpc_id                  = aws_vpc.my_vpc_east.id
-  cidr_block              = var.public_cidr_a
-  availability_zone       = "${var.aws_region}a"
-  map_public_ip_on_launch = true
-
-  tags = tomap(
-      { "Name" = lower(format("subnet-%s", var.environment_name)) }
-    )
-}

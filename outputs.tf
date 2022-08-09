@@ -9,11 +9,3 @@ output "public_subnet_a_id" {
 # output "private_subnet_a_id" {
 #     value = aws_subnet.private_a.id
 # }
-
-output "my_vpc_east_id" {
-  value = aws_vpc.my_vpc_east.id
-}
-
-output "public_subnet_a_east_id" {
-  value = aws_subnet.public_a_east.id
-}
